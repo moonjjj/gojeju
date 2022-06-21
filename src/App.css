@@ -7,13 +7,13 @@
   font-family: "BaeMinJeju";
 }
 .sections{
-  border-bottom:10px solid #fefd496e;
   /* background-color: #eeeeee; */
 }
 
 /* first section */
 .first_section{
   position: relative;
+  margin-bottom:-10px
 }
 #canvas{
   width:100%;
@@ -31,11 +31,43 @@
   transform: translate(-50%, -50%);
   z-index: 1;
   font-size:calc(100vw * (60 / 428));
-  color:#002863;
+  color:#fff;
 }
 
 /* second section */
+.second_section{
+  position: relative;
+}
 .jeju_map{
   width: 100%;
   height: 460px;
+}
+.jeju_search_input{
+  outline: none;
+  border: 1px solid #d2d2d2;
+  font-size: 12px;
+  border-radius: 15px;
+  padding: 10px 20px;
+  margin: 20px auto;
+  width: 70%;
+  max-width: 300px;
+  position:absolute;
+  top:10%;
+  z-index: 3;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.jeju_search_input:focus{
+  background-color:transparent;
+}
+.map_down_btn{
+  color: #000;
+    font-size: 40px;
+    cursor: pointer;
+    position: absolute;
+    bottom: -10%;
+    z-index: 3;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';
 
-import { Map, MapMarker, Circle } from 'react-kakao-maps-sdk';
+import { Map, MapMarker, Circle, ZoomControl } from 'react-kakao-maps-sdk';
 
 //etc
 const {kakao} = window;
@@ -9,7 +9,8 @@ export default function JejuMap(){
   const [info, setInfo] = useState()
   const [markers, setMarkers] = useState([])
   const [map, setMap] = useState()
-  const [inputValue, setInputValue] = useState();
+  const [inputValue, setInputValue] = useState("제주 맛집");
+  const [draggable, setDraggable] = useState(false)
 
   useEffect(() => {
     if (!map) return
@@ -51,6 +52,7 @@ export default function JejuMap(){
       className="jeju_map"
       level={3}
       onCreate={setMap}
+      // draggable={draggable}
     >
       {markers.map((marker) => (
         <MapMarker
@@ -59,7 +61,16 @@ export default function JejuMap(){
           onClick={() => setInfo(marker)}
         >
           {info &&info.content === marker.content && (
-            <div style={{color:"#000"}}>{marker.content}</div>
+            <div style={{color:"#000"}}
+              onClick={()=>{
+                // document.location.href('www.naver.com');
+                // window.location,href=`https://map.naver.com/v5/search/${marker.content}/place`
+                window.open(`https://map.naver.com/v5/search/${marker.content?.replace(" ","%20")}`,'네이버','width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes');return false;
+              }}
+            >
+              {marker.content}
+              
+            </div>
           )}
         </MapMarker>
       ))}
@@ -82,14 +93,24 @@ export default function JejuMap(){
                     },
                   }}
                 />
+                {/* <ZoomControl style={{top:'123px'}}/> */}
     </Map>
 
     <input 
-    type="text"
-    onChange={(e)=>{
-      setInputValue("제주" + e.target.value);
-    }}
+      type="text"
+      className="jeju_search_input"
+      onChange={(e)=>{
+        setInputValue("제주" + e.target.value);
+      }}
+      placeholder="검색해보세요 ex)표선면 맛집, 승마"
     />
+    <div className="map_down_btn" onClick={(e)=>{
+      window.scrollTo({
+        top: 300,
+        behavior: "smooth",
+      })
+    }}
+    >⬇️</div>
 
     </div>
   );
