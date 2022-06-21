@@ -1,38 +1,41 @@
+@font-face {
+  font-family: "BaeMinJeju";
+  src: url("./asset/fonts/BMYEONSUNG_ttf.ttf") format("truetype");
+}
 .App {
   text-align: center;
+  font-family: "BaeMinJeju";
+}
+.sections{
+  border-bottom:10px solid #fefd496e;
+  /* background-color: #eeeeee; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* first section */
+.first_section{
+  position: relative;
+}
+#canvas{
+  width:100%;
+  max-height:100vh;
+  z-index: 0;
+  /* display: flex; */
+  /* justify-content: center; */
+}
+.first_section span{
+  font-weight: 700;
+  position:absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  font-size:calc(100vw * (60 / 428));
+  color:#002863;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* second section */
+.jeju_map{
+  width: 100%;
+  height: 460px;
 }
