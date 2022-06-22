@@ -71,3 +71,48 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.marker_info{
+  /* background-color: #000; */
+  text-align: center;
+  
+}
+
+
+/* third section */
+.mini_section_one{
+  border-top:7px solid #ececec;
+  border-bottom:7px solid #ececec;
+  padding: 10px;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  /* align-items: flex-start; */
+}
+.one_title1{
+  font-size:110px;
+  animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count:infinite;
+  position: absolute;
+  top:30px;
+  opacity: 0.3;
+}
+.one_sub_title{
+}
+.one_airplane{
+  
+  font-size:13px; 
+}
+.one_time{
+  font-size:22px;
+}
+@keyframes slidein {
+  from {
+    transform: skew(-30deg);
+  }
+  
+  to {
+    transform:translateX(400px);
+  }
+}

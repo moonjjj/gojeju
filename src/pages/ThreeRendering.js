@@ -41,6 +41,8 @@ export default function ThreeRendering() {
         loader.load('../jeju-airplane/scene.gltf', function(gltf){ //이미지경로를 public에 두니 문제해결!
           scene.add(gltf.scene);
           
+
+
           function animate(){
             requestAnimationFrame(animate)
             gltf.scene.rotation.y += 0.02;
@@ -55,16 +57,11 @@ export default function ThreeRendering() {
         })
     },[])
 
-  
-  
-  
 
     return(
-        <>
         <div className="first_section sections">
             <canvas ref={canvasDom} id="canvas"></canvas>
             <span>LET'S GO <br/>제주도💭</span>
         </div>
-        </>
     );
 }

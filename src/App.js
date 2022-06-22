@@ -5,6 +5,7 @@ import './App.css';
 // page import
 import JejuMap from './pages/JejuMap';
 import ThreeRendering from './pages/ThreeRendering';
+import NoPlanIsPlan from './pages/NoPlanIsPlan';
 
 function App() {
 
@@ -12,9 +13,11 @@ function App() {
   return (
     <div className="App">
 
-      {/* <ThreeRendering/> */}
+      <ThreeRendering/>
 
       <JejuMap/>
+
+      <NoPlanIsPlan/>
 
     </div>
   );
