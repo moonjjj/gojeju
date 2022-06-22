@@ -12,9 +12,10 @@ function App() {
   return (
     <div className="App">
 
-      <ThreeRendering/>
+      {/* <ThreeRendering/> */}
 
       <JejuMap/>
+
     </div>
   );
 }

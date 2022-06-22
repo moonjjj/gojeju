@@ -1,6 +1,8 @@
 import React,{useState, useEffect} from 'react';
 
-import { Map, MapMarker, Circle, ZoomControl } from 'react-kakao-maps-sdk';
+import { Map, MapMarker, Circle, ZoomControl,Roadview, RoadviewMarker } from 'react-kakao-maps-sdk';
+import home from '../asset/img/home.png';
+import orangeMarker from '../asset/img/marker-orange.png';
 
 //etc
 const {kakao} = window;
@@ -9,8 +11,11 @@ export default function JejuMap(){
   const [info, setInfo] = useState()
   const [markers, setMarkers] = useState([])
   const [map, setMap] = useState()
-  const [inputValue, setInputValue] = useState("제주 맛집");
-  const [draggable, setDraggable] = useState(false)
+  const [inputValue, setInputValue] = useState("제주도 서귀포시 표선면 가시로 263-15");
+  const [draggable, setDraggable] = useState(false);
+  const [toggle, setToggle] = useState("map")
+
+
 
   useEffect(() => {
     if (!map) return
@@ -41,24 +46,104 @@ export default function JejuMap(){
         map.setBounds(bounds)
       }
     })
+
+    // 여기부터 지오코딩
+    if (navigator.geolocation) {
+    
+      // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+      navigator.geolocation.getCurrentPosition(function(position) {
+          
+          var lat = position.coords.latitude, // 위도
+              lon = position.coords.longitude; // 경도
+          
+          var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+              message = '<div style="padding:5px;">현위치!</div>'; // 인포윈도우에 표시될 내용입니다
+          
+          // 마커와 인포윈도우를 표시합니다
+          displayMarker(locPosition, message);
+              
+        });
+      
+  } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+      
+      var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),    
+          message = 'geolocation을 사용할수 없어요..'
+          
+      displayMarker(locPosition, message);
+  }
+  
+  // 지도에 마커와 인포윈도우를 표시하는 함수입니다
+  function displayMarker(locPosition, message) {
+  
+      // 마커를 생성합니다
+      var marker = new kakao.maps.Marker({  
+          map: map, 
+          position: locPosition
+      }); 
+      
+      var iwContent = message, // 인포윈도우에 표시할 내용
+          iwRemoveable = true;
+  
+      // 인포윈도우를 생성합니다
+      var infowindow = new kakao.maps.InfoWindow({
+          content : iwContent,
+          removable : iwRemoveable
+      });
+      
+      // 인포윈도우를 마커위에 표시합니다 
+      infowindow.open(map, marker);
+      
+      // 지도 중심좌표를 접속위치로 변경합니다
+      map.setCenter(locPosition);      
+  }  
+// 
+
   }, [map,inputValue])
   return(
     <div className="second_section sections">
           <Map // 로드뷰를 표시할 Container
       center={{
-        lat: 37.566826,
-        lng: 126.9786567,
+        lat: 33.339120415606985, 
+        lng: 126.79790619306574,
       }}
       className="jeju_map"
-      level={3}
+      level={10}
       onCreate={setMap}
       // draggable={draggable}
     >
+      {toggle === "map" && (
+          <input
+            style={{
+              position: "absolute",
+              top: "5px",
+              left: "5px",
+              zIndex: 10,
+            }}
+            type="button"
+            onClick={() => setToggle("roadview")}
+            title="로드뷰 보기"
+            value="로드뷰"
+          />
+        )}
+
       {markers.map((marker) => (
         <MapMarker
           key={`marker-${marker.content}-${marker.position.lat},${marker.position.lng}`}
           position={marker.position}
           onClick={() => setInfo(marker)}
+          image={{
+            src: orangeMarker, // 마커이미지의 주소입니다
+            size: {
+              width: 22,
+              height: 42,
+            },
+            // options: {
+            //   offset: {
+            //     x: 27,
+            //     y: 69,
+            //   },
+            // },
+          }}
         >
           {info &&info.content === marker.content && (
             <div style={{color:"#000"}}
@@ -74,16 +159,16 @@ export default function JejuMap(){
           )}
         </MapMarker>
       ))}
-                      <MapMarker
+                <MapMarker
                   position={{
-                    lat: 37.566826,
-                    lng: 126.9786567,
+                    lat: 33.339120415606985, 
+                    lng: 126.79790619306574,
                   }}
                   image={{
-                    src: 'https://gongsaero.s3.ap-northeast-2.amazonaws.com/system/marker_gongsaero.png', // 마커이미지의 주소입니다
+                    src: home, // 마커이미지의 주소입니다
                     size: {
-                      width: 64,
-                      height: 69,
+                      width: 22,
+                      height: 22,
                     },
                     options: {
                       offset: {
@@ -93,8 +178,34 @@ export default function JejuMap(){
                     },
                   }}
                 />
+
+
                 {/* <ZoomControl style={{top:'123px'}}/> */}
     </Map>
+    <Roadview // 로드뷰를 표시할 Container
+        position={{ ...placePosition, radius: 50 }}
+        style={{
+          display: toggle === "roadview" ? "block" : "none",
+          width: "100%",
+          height: "100%",
+        }}
+      >
+        <RoadviewMarker position={placePosition} />
+        {toggle === "roadview" && (
+          <input
+            style={{
+              position: "absolute",
+              top: "5px",
+              left: "5px",
+              zIndex: 10,
+            }}
+            type="button"
+            onClick={() => setToggle("map")}
+            title="지도 보기"
+            value="지도"
+          />
+        )}
+      </Roadview>
 
     <input 
       type="text"
