@@ -4,7 +4,7 @@ import React,{useEffect, useRef} from 'react';
 export default function NoPlanIsPlan() {
     return(
         <div className="third_section sections">
-            <div className="mini_section_one">
+            {/* <div className="mini_section_one">
                 <span className="one_title1">✈️</span>
                 
                 <p className="one_sub_title">출발! 24일</p>
@@ -29,12 +29,12 @@ export default function NoPlanIsPlan() {
                     <span> > </span>
                     <span>10시 20분 🕥</span>
                 </div>
-            </div>
+            </div> */}
             <div className="mini_section_second">
             <p className="two_sub_title">
-                장마시즌...인생 최초 <strong>무계획 제주여행</strong>
+                {/* 장마시즌...인생 최초 <strong>무계획 제주여행</strong>
                 <br/>
-                유동적으로 움직이기!!
+                유동적으로 움직이기!! */}
             </p>
             </div>
         </div>

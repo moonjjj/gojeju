@@ -1,4 +1,4 @@
-import React,{ useRef } from 'react';
+import React,{ useRef, useState } from 'react';
 import './App.css';
 
 
@@ -6,18 +6,22 @@ import './App.css';
 import JejuMap from './pages/JejuMap';
 import ThreeRendering from './pages/ThreeRendering';
 import NoPlanIsPlan from './pages/NoPlanIsPlan';
+import Weather from './pages/Weather';
 
 function App() {
+  const [cold, setCold] = useState();
 
  
   return (
-    <div className="App">
+    <div className="App" >
 
-      <ThreeRendering/>
+      {/* <ThreeRendering/> */}
 
-      <JejuMap/>
+      {/* <JejuMap/> */}
 
       <NoPlanIsPlan/>
+
+      <Weather setCold={setCold}/>
 
     </div>
   );
