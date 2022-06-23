@@ -1,17 +1,22 @@
 {
   "files": {
-    "main.css": "/gojeju/static/css/main.b299c232.css",
-    "main.js": "/gojeju/static/js/main.c539e2a1.js",
+    "main.css": "/gojeju/static/css/main.f258f703.css",
+    "main.js": "/gojeju/static/js/main.09876bb9.js",
     "static/js/787.4626d1fa.chunk.js": "/gojeju/static/js/787.4626d1fa.chunk.js",
     "static/media/BMYEONSUNG_ttf.ttf": "/gojeju/static/media/BMYEONSUNG_ttf.7236017a8a6657039c85.ttf",
+    "static/media/isfp.jpeg": "/gojeju/static/media/isfp.5a3931dccfb937c116f8.jpeg",
+    "static/media/isfj.jpeg": "/gojeju/static/media/isfj.d8104fc31b492bc7dd70.jpeg",
+    "static/media/entj.jpeg": "/gojeju/static/media/entj.91757783fffd9240259a.jpeg",
     "static/media/marker-orange.png": "/gojeju/static/media/marker-orange.5dae258af51bc8fecacf.png",
+    "static/media/esfj.jpeg": "/gojeju/static/media/esfj.c12b6d4bb4023df21bda.jpeg",
+    "static/media/cafe.png": "/gojeju/static/media/cafe.e4d11e319f49aa61491f.png",
     "index.html": "/gojeju/index.html",
-    "main.b299c232.css.map": "/gojeju/static/css/main.b299c232.css.map",
-    "main.c539e2a1.js.map": "/gojeju/static/js/main.c539e2a1.js.map",
+    "main.f258f703.css.map": "/gojeju/static/css/main.f258f703.css.map",
+    "main.09876bb9.js.map": "/gojeju/static/js/main.09876bb9.js.map",
     "787.4626d1fa.chunk.js.map": "/gojeju/static/js/787.4626d1fa.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b299c232.css",
-    "static/js/main.c539e2a1.js"
+    "static/css/main.f258f703.css",
+    "static/js/main.09876bb9.js"
   ]
 }
