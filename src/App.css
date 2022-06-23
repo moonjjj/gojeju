@@ -5,6 +5,7 @@
 .App {
   text-align: center;
   font-family: "BaeMinJeju";
+  overflow: hidden;
 }
 .sections{
   /* background-color: #eeeeee; */
@@ -107,6 +108,84 @@
 .one_time{
   font-size:22px;
 }
+.to_do_list{
+  border-bottom:4px solid #020202;
+}
+table{
+  border-collapse: collapse;
+  border-spacing: 1px;
+  border-top: 1px solid #ccc;
+  margin : 20px 10px;
+}
+table th {
+  font-weight:100;
+  font-size:19px;
+  width: 150px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background-color: aliceblue;
+}
+table td {
+  width: 350px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+
+
+
+
+
+
+/* mbti */
+.mbti_elem{
+  padding: 30px 20px;
+  border-bottom: 4px solid #020202;
+}
+.mbti_title{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin:10px 0;
+}
+.mbti_title span:first-child{
+  font-size: 19px;
+  margin-right: 3px;
+}
+.mbti_title span:last-child{
+  font-size: 15px;
+  color:#ccc;
+}
+.mbti_img_box{
+  width:100%;
+}
+.mbti_img_box img{
+  width:100%;
+  outline: 11px solid aliceblue;
+}
+.mbti_desc{
+  padding: 30px 20px;
+  line-height: 1.7;
+}
+
+.footer{
+  font-size:12px;
+  color:#787878;
+  padding:15px 15px;
+  display: block;
+
+}
+.thankYou{
+  font-size: 60px;
+    white-space: nowrap;
+    width: 80%;
+    margin: 0 auto;
+
+    animation-duration: 5s;
+    animation-name: slideEmoji;
+    animation-iteration-count:infinite;
+}
 @keyframes slidein {
   from {
     transform: skew(-30deg);
@@ -114,5 +193,15 @@
   
   to {
     transform:translateX(400px);
+  }
+}
+
+@keyframes slideEmoji {
+  from {
+    transform: translateX(100%);
+  }
+  
+  to {
+    transform: translateX(0px);
   }
 }

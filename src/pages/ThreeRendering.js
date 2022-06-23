@@ -39,7 +39,7 @@ export default function ThreeRendering() {
       
         let loader = new GLTFLoader();
         // loader.load('../jeju-airplane/scene.gltf', function(gltf){ //이미지경로를 public에 두니 문제해결!
-        loader.load('https://moonjjj.github.io/gojeju/jeju-airplane/scene.gltf', function(gltf){ //이미지경로를 public에 두니 문제해결!
+        loader.load('https://moonjjj.github.io/gojeju/jeju-airplane/scene.gltf', function(gltf){ //이미지경로를 public에 두니 문제해결! 깃에 올리는걸로 경로를 잡아주니 해결!
           scene.add(gltf.scene);
           
 

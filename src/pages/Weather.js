@@ -28,8 +28,8 @@ import {
 import { BsCloudFog } from "react-icons/bs";
 
 const api = {
-//   key: "31066fc9d2c616068e6694e5a0e26d2b",
-  key: "4ce2d69a9a47b36734f7d73ad75c6785",
+  key: "31066fc9d2c616068e6694e5a0e26d2b",
+  // key: "4ce2d69a9a47b36734f7d73ad75c6785",
   base: "https://api.openweathermap.org/data/2.5/",
 };
 
@@ -58,7 +58,6 @@ function Weather({ setCold }) {
     let year = d.getFullYear();
     let date = d.getDate();
     let hour = d.getHours();
-    console.log(hour);
 
     return `${year}년 ${month} ${date}일 ${day} ${hour}시`;
   };
@@ -103,8 +102,8 @@ function Weather({ setCold }) {
   return (
     <Wrapper>
       <div className="locationBox">
-        <Location>{city} City, KOREA</Location>
-        <DateDiv>♥ -- {dateBuilder(new Date())} -- ♥</DateDiv>
+        <Location>{city} City, KOREA🇰🇷</Location>
+        <DateDiv>{dateBuilder(new Date())}</DateDiv>
       </div>
 
       <div className="weatherBox">
@@ -123,7 +122,7 @@ const Location = styled.div`
   color: #000;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 0.5rem;
-  padding: 2rem;
+  padding: 1rem;
   margin-bottom: 1rem;
   font-size: 30px;
   font-weight: 500;
@@ -139,13 +138,13 @@ const DateDiv = styled.div`
 const Temperature = styled.div`
   color: #000;
   font-size: 50px;
-  margin-top: 1rem;
+  margin-top: .1rem;
 `;
 
 const WeatherDiv = styled.div`
   color: #000;
   font-size: 20px;
-  margin-top: 2rem;
+  margin-top: 1rem;
 `;
 
 const WeatherIcon = styled.div``;
