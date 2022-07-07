@@ -2,6 +2,8 @@
 
 [GOJEJU](https://moonjjj.github.io/gojeju)
 
+이틀만에 급하게 만든 사이트입니다..! (감안해주세요)
+
 -------
 
 ### 만들게 된 이유 💻
